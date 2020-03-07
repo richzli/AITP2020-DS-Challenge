@@ -1,0 +1,85 @@
+dataIn = readtable('../data/TREE_COMMON.csv');
+dataIn2 = dataIn(:, [5, 6, 15, 19]);
+newData = table2array(dataIn2);
+
+temp = containers.Map;
+temp(1)=1;
+temp(2)=2;
+temp(4)=3;
+temp(5)=4;
+temp(6)=5;
+temp(8)=6;
+temp(9)=7;
+temp(10)=8;
+temp(11)=9;
+temp(12)=10;
+temp(13)=11;
+temp(15)=12;
+temp(16)=13;
+temp(17)=14;
+temp(18)=15;
+temp(19)=16;
+temp(20)=17;
+temp(21)=18;
+temp(22)=19;
+temp(23)=20;
+temp(24)=21;
+temp(25)=22;
+temp(26)=23;
+temp(27)=24;
+temp(28)=25;
+temp(29)=26;
+temp(30)
+temp(31)
+temp(32)
+temp(33)
+temp(34)
+temp(35)
+temp(36)
+temp(37)
+temp(38)
+temp(39)
+temp(40)
+temp(41)
+temp(42)
+temp(44
+temp(45
+temp(46
+temp(47
+temp(48
+temp(49
+temp(50
+temp(51
+temp(53
+temp(54
+temp(55
+temp(56
+
+for i = 1:length(newData)
+    newData(i, 2) = temp(newData(i,2));
+end
+
+U = unique(newData(:,2));
+C = arrayfun(@(n)newData(newData(:,2)==n,:),U,'uni',0);
+
+%year_height_arr = table2array(year_height);
+%histogram(year_height(:, 2))
+%tree131 = year_height_arr(year_height_arr(:, 2) == 131);
+
+%histogram(table2array(tree131))
+%disp(dataIn)
+%histogram(year_height(:, 2))
+
+figure
+S = shaperead('usastatelo.shp');
+numRegions = length(S);
+mapshow(S)
+
+cmap = colormap;
+numColors = size(cmap, 1);
+
+data = randi(numColors, 1, numRegions);
+
+for i = 1:length(S)
+    mapshow(S(i), 'FaceColor', cmap(data(i),:))
+end
