@@ -12,9 +12,13 @@ U = unique(newData(:,2));
 C = arrayfun(@(n)newData(newData(:,2)==n,:),U,'uni',0);
 
 thing = zeros(5);
+thing = thing + 1;
 
 for i = 1:length(C)
-    thing(C(i)(1, 2)) = mean(C(i)(:,4)
+    temp = C(i);
+    if (length(temp) > 1)
+        thing(temp(1, 2)) = cast(mean(temp(:,4)), 'uint8');
+    end
 end
 
 disp(C(1))
