@@ -1,5 +1,6 @@
 f = open("../data/TREE.csv", "r")
-rel_cols = [i for i in range(11)] + [13+i for i in range(6)] + [21, 110]
+
+rel_cols = [i for i in range(11)] + [13+i for i in range(6)] + [19, 21, 110]
 
 f_out = open("../data/TREE_CLEAN.csv", "w")
 
